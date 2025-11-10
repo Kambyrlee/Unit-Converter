@@ -4,6 +4,8 @@ from converters.feet_to_meters import FeetToMeters
 from converters.meters_to_feet import MetersToFeet
 from converters.inches_to_centimeters import InchesToCM
 from converters.centimeters_to_inches import CmToInches
+from converters.miles_to_kilometers import MilesToKM
+from converters.kilometers_to_miles import KmToMiles
 import sys, os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -19,6 +21,10 @@ def start_conversion():
             InchesToCM(root)
         case "Centimeters to Inches":
             CmToInches(root)
+        case "Miles to Kilometers":
+            MilesToKM(root)
+        case "Kilometers to Miles":
+            KmToMiles(root)
 
 root = Tk()
 root.title("Unit Converter")
@@ -33,7 +39,8 @@ ttk.Label(mainframe, text="Select desired conversion:").grid(column=1, row=0)
 conversion_box = ttk.Combobox(mainframe, 
              textvariable=conversion, 
              values=("Feet to Meters", "Meters to Feet",
-                     "Inches to Centimeters", "Centimeters to Inches"), 
+                     "Inches to Centimeters", "Centimeters to Inches",
+                     "Miles to Kilometers", "Kilometers to Miles"), 
              state="readonly")
 conversion_box.grid(column=1, row=1, pady=5)
 conversion_box.current(0)
